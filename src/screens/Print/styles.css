@@ -1,0 +1,17 @@
+@media print
+{    
+    .top-print {
+        margin-top: 0px !important;
+        text-align: center;
+    }
+
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+.top-print {
+    margin-top: 50px;
+    text-align: center;
+}
