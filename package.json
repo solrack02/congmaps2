@@ -3,10 +3,23 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "_____ EXPO EAS _____": "_",
+    "eas:upd:preview": "npx eas-cli update --branch preview",
+    "eas:build:android": "npx eas-cli build -p android --profile preview",
+    "eas:build:ios": "npx eas-cli build -p ios --profile preview",
+    "eas:submit:ios": "npx eas-cli submit --platform ios",
+    "_____ EXPO _____": "_",
+    "start": "npx expo start",
+    "android": "npx expo start --android",
+    "ios": "npx expo start --ios",
+    "web": "npx expo start --web",
+    "webCodeSpaces": "yarn setCodeSpaces && yarn web",
+    "pub": "npx expo publish",
+    "export:web:clear": "npx expo export:web --clear",
+    "web:clear": "npx expo start --clear --web",
+    "start:clear": "npx expo start --clear",
+    "eject": "npx expo eject",
+    "build:clear": "npx expo build:web --clear"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",

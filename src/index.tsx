@@ -7,7 +7,7 @@ import { setRoutes } from "./config/routes/setRoutes";
 // ----------- import Internals
 
 // ----------- export Component
-export const MainComp = () => {
+export const App = () => {
   // ----------- set Return
   return (
     <Connect>
