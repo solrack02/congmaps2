@@ -1,6 +1,6 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestoreInit } from '../../../../config/firebase';
-import { getData } from '../../../Home/Comps/Schedule/Form';
+// import { getData } from '../../../Home/Comps/Schedule/Form';
 
 export const asyncFn3 = async () => {
   console.log('INIT GET CARDS');

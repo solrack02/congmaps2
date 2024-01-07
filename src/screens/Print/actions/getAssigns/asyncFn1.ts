@@ -12,9 +12,10 @@ export const asyncFn1 = async () => {
   //   Object.values(cycles).find((i: any) => i.docId === currCycle) ?? [];
   // const currCycleID = cycleInfo.docId;
   // console.log({ cycleInfo });
+  const currCycle = window.localStorage.getItem('currCycle');
 
   const dbRef = collection(firestoreInit, 'assignments');
-  const q = query(dbRef, where('cycleID', '==', 'Wk86fCmDozTgrA5uTw53'));
+  const q = query(dbRef, where('cycleID', '==', currCycle ?? 'Wk86fCmDozTgrA5uTw53'));
   const searchUser = await getDocs(q);
 
   // ---------- set Users Found if any

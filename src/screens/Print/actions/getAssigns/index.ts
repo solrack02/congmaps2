@@ -7,9 +7,9 @@ import { asyncFn3 } from './asyncFn3';
 export const getAssigns = async () => {
   setData([{ path: 'A2.list.condList', val: false }]);
 
-  // const cycles = await asyncFn2().catch(err =>
-  //   console.log('Erro do Get Assigns!', { err }),
-  // );
+  const cycles = await asyncFn2().catch(err =>
+    console.log('Erro do Get Assigns!', { err }),
+  );
 
   const cards = await asyncFn3().catch(err =>
     console.log('Erro do Get Assigns!', { err }),
@@ -25,7 +25,7 @@ export const getAssigns = async () => {
   setData([
     { path: 'A2.list.condList', val: true },
     { path: 'projectData.cards.list', val: cards },
-    // { path: 'projectData.cycles.list', val: cycles },
+    { path: 'projectData.cycles.list', val: cycles },
     { path: 'A2.list.itemsInfo', val: objAssignments },
     { path: 'A2.list.itemsList', val: arrAssignments },
   ]);

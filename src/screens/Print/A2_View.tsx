@@ -52,6 +52,7 @@ export const A2_View = () => {
   const getTxt = (txt: string) => {
     setPick(txt);
     // setStorage("currCycle", txt);
+    window.localStorage.setItem("currCycle", txt);
   };
 
   const condValuePicker = sttPick ?? sttValues;

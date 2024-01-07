@@ -1,6 +1,5 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestoreInit } from '../../../../config/firebase';
-import { getData } from '../../../Home/Comps/Schedule/Form';
 
 export const asyncFn2 = async () => {
   // const currCycle = await getData('currCycle');
