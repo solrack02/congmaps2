@@ -1,17 +1,17 @@
 // ----------- import Packs
-import { goTo } from '@morfos/routes';
-import React from 'react';
-import { Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { useData } from '../../config/centralData';
-import { Assignments_Form_Set } from './Comps/Assigns/Form_Set';
+import { goTo } from "@morfos/routes";
+import React from "react";
+import { Text, TouchableOpacity, View, ViewStyle } from "react-native";
+import { useData } from "../../config/centralData";
+import { Assignments_Form_Set } from "./Comps/Assigns/Form_Set";
 import {
   Btn2,
   stlCardForm,
   stlIpt1,
   stlRow,
-} from './Comps/Assigns/List/stlCards';
-import { Card_Form } from './Comps/Cards/Form';
-import { Card_List } from './Comps/Cards/List';
+} from "./Comps/Assigns/List/stlCards";
+import { Card_Form } from "./Comps/Cards/Form";
+import { Card_List } from "./Comps/Cards/List";
 import {
   Btn1,
   stlNav,
@@ -19,12 +19,12 @@ import {
   stlTabsBar,
   stlTools,
   stlTxtLight,
-} from './Comps/Cards/List/stlCards';
-import { Cycles_Form } from './Comps/Cycles/Form';
-import { OldCards } from './Comps/Schedule/Form';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import { ByGroups } from './Comps/Schedule/ByGroups';
-import { Assignments_Form_Updt } from './Comps/Assigns/Form_Updt';
+} from "./Comps/Cards/List/stlCards";
+import { Cycles_Form } from "./Comps/Cycles/Form";
+import { OldCards } from "./Comps/Schedule/Form";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import { ByGroups } from "./Comps/Schedule/ByGroups";
+import { Assignments_Form_Updt } from "./Comps/Assigns/Form_Updt";
 
 // import img01 from '../../../assets/cards/01.jpg';
 // import img02 from '../../../assets/cards/02.jpg';
@@ -46,8 +46,8 @@ import { Assignments_Form_Updt } from './Comps/Assigns/Form_Updt';
 // import img18 from '../../../assets/cards/18.jpg';
 // import img19 from '../../../assets/cards/19.jpg';
 // import img20 from '../../../assets/cards/20.jpg';
-import { InitFunction } from '@morfos/renders';
-import { getCards } from './Comps/Cards/actions/getCards';
+import { InitFunction } from "@morfos/renders";
+import { getCards } from "./Comps/Cards/actions/getCards";
 
 // ----------- import Internals
 // const objAllImgs = {
@@ -77,8 +77,8 @@ import { getCards } from './Comps/Cards/actions/getCards';
 
 // ----------- export Component
 export const A0_View = () => {
-  const [sttTab, setTab] = React.useState('des');
-  const condActiveTab = sttTab === 'des';
+  const [sttTab, setTab] = React.useState("des");
+  const condActiveTab = sttTab === "des";
 
   React.useEffect(() => {
     // document.body.style.zoom = '80%';
@@ -86,7 +86,7 @@ export const A0_View = () => {
 
     const viewport = document.querySelector("[name='viewport']");
     const content = `width=device-width, initial-scale=1.0`;
-    viewport && viewport.setAttribute('content', content);
+    viewport && viewport.setAttribute("content", content);
   }, []);
   // ----------- set Data
   // const loader = useData(ct => ct.scInfo.A1.msg.loading);
@@ -104,34 +104,34 @@ export const A0_View = () => {
               style={[
                 stlIpt1,
                 stlTabs,
-                { borderBottomColor: condActiveTab ? 'white' : 'black' },
+                { borderBottomColor: condActiveTab ? "white" : "black" },
               ]}
               onPress={() => {
-                setTab('des');
+                setTab("des");
               }}
             >
-              <Text style={{ fontWeight: 'bold' }}>Designar</Text>
+              <Text style={{ fontWeight: "bold" }}>Designar</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[
                 stlIpt1,
                 stlTabs,
-                { borderBottomColor: condActiveTab ? 'black' : 'white' },
+                { borderBottomColor: condActiveTab ? "black" : "white" },
               ]}
               onPress={() => {
-                setTab('rel');
+                setTab("rel");
               }}
             >
-              <Text style={{ fontWeight: 'bold' }}>Relatórios</Text>
+              <Text style={{ fontWeight: "bold" }}>Relatórios</Text>
             </TouchableOpacity>
           </View>
 
           <View style={stlTools}>
-            <TouchableOpacity style={[Btn1]} onPress={() => goTo('maps')}>
+            <TouchableOpacity style={[Btn1]} onPress={() => goTo("maps")}>
               <SimpleLineIcons name="map" size={24} color="white" />
             </TouchableOpacity>
 
-            <TouchableOpacity style={[Btn1]} onPress={() => goTo('print')}>
+            <TouchableOpacity style={[Btn1]} onPress={() => goTo("print")}>
               <SimpleLineIcons name="printer" size={24} color="white" />
             </TouchableOpacity>
           </View>
@@ -173,20 +173,20 @@ export const A0_View = () => {
 };
 
 const MostUseds = () => {
-  const arrUsed = useData(ct => ct.projectData.mostUsed.list);
-  const usedCards = arrUsed.map(i => {
+  const arrUsed = useData((ct) => ct.projectData.mostUsed.list);
+  const usedCards = arrUsed.map((i) => {
     const numUsed = i[1];
 
     const colors: any = {
-      1: { c1: '#c3eb99', c2: '#89ae70' },
-      2: { c1: '#c3eb99', c2: '#89ae70' },
+      1: { c1: "#c3eb99", c2: "#89ae70" },
+      2: { c1: "#c3eb99", c2: "#89ae70" },
 
-      3: { c1: '#f5e273', c2: '#9e7e56' },
-      4: { c1: '#f5e273', c2: '#9e7e56' },
+      3: { c1: "#f5e273", c2: "#9e7e56" },
+      4: { c1: "#f5e273", c2: "#9e7e56" },
 
-      5: { c1: '#f88a6f', c2: '#d83f3f' },
+      5: { c1: "#f88a6f", c2: "#d83f3f" },
 
-      6: { c1: '#962727', c2: '#320f0f', c3: '#ffc989' },
+      6: { c1: "#962727", c2: "#320f0f", c3: "#ffc989" },
     };
     const currPalette = colors[numUsed];
 
@@ -198,19 +198,19 @@ const MostUseds = () => {
           width: 34,
           height: 34,
           borderWidth: 2,
-          borderColor: currPalette ? currPalette?.c2 : '#333',
-          backgroundColor: currPalette ? currPalette?.c1 : '#fff',
-          alignItems: 'center',
-          justifyContent: 'center',
+          borderColor: currPalette ? currPalette?.c2 : "#333",
+          backgroundColor: currPalette ? currPalette?.c1 : "#fff",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Text
           style={{
             fontSize: 11,
-            position: 'absolute',
+            position: "absolute",
             top: -1,
             left: 2,
-            color: currPalette ? currPalette?.c3 : '#333',
+            color: currPalette ? currPalette?.c3 : "#333",
           }}
         >
           {i[0]}
@@ -219,10 +219,10 @@ const MostUseds = () => {
           style={{
             fontWeight: 600,
             fontSize: 14,
-            position: 'absolute',
+            position: "absolute",
             bottom: -1,
             right: 2,
-            color: currPalette ? currPalette?.c3 : '#333',
+            color: currPalette ? currPalette?.c3 : "#333",
           }}
         >
           {i[1]}
@@ -234,7 +234,7 @@ const MostUseds = () => {
   return (
     <View style={stlCardForm}>
       <Text>Mais Usados</Text>
-      <View style={[stlRow, { flexWrap: 'wrap' }]}>{usedCards}</View>
+      <View style={[stlRow, { flexWrap: "wrap" }]}>{usedCards}</View>
     </View>
   );
 };
