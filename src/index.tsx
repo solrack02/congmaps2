@@ -1,13 +1,13 @@
 // ----------- import Packs
-import React from 'react';
-import { Router } from '@morfos/routes';
+import React from "react";
+import { Router } from "@morfos/routes";
+import { Connect, setData } from "./config/centralData";
+import { setRoutes } from "./config/routes/setRoutes";
 
 // ----------- import Internals
-import { setRoutes } from './config/routes/setRoutes';
-import { Connect, setData } from './config/centralData';
 
 // ----------- export Component
-export const App = () => {
+export const MainComp = () => {
   // ----------- set Return
   return (
     <Connect>
@@ -19,7 +19,7 @@ export const App = () => {
 const ConnectedRouter = () => {
   // ----------- set Changes
   const getData = (path: string) =>
-    setData(() => [{ path: 'dev.selectedRoute', val: path }]);
+    setData(() => [{ path: "dev.selectedRoute", val: path }]);
 
   // ----------- set Return
   return <Router setHome="home" routes={setRoutes()} getData={getData} />;
