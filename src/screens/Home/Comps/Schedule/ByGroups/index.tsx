@@ -66,16 +66,16 @@ export const ByGroups = () => {
   //   setStorage('currCycle', txt);
   // };
 
-  const getData2 = async (path: string) => {
-    try {
-      const value = await AsyncStorage.getItem(path);
-      if (value !== null) {
-        setValues(value);
-      }
-    } catch (error) {}
-  };
+  // const getData2 = async (path: string) => {
+  //   try {
+  //     const value = await AsyncStorage.getItem(path);
+  //     if (value !== null) {
+  //       setValues(value);
+  //     }
+  //   } catch (error) {}
+  // };
 
-  getData2("currCycle");
+  // getData2("currCycle");
 
   // const condValuePicker = sttPick ?? sttValues;
 
@@ -123,9 +123,9 @@ export const ByGroups = () => {
     padding: 4,
   };
   // console.log({ newArr });
-  const toRenderList = newArr.map((i) => {
+  const toRenderList = newArr.map((i, idx) => {
     return (
-      <View style={styleSquare}>
+      <View key={idx} style={styleSquare}>
         <View style={{ flexDirection: "row", marginBottom: 5 }}>
           <Text
             lineBreakMode="tail"
@@ -140,10 +140,10 @@ export const ByGroups = () => {
           </Text>
         </View>
         <View>
-          {i.list.map((e) => {
+          {i.list.map((e, id) => {
             // console.log({ e });
             return (
-              <View style={stlRow}>
+              <View key={id} style={stlRow}>
                 <Text
                   lineBreakMode="tail"
                   numberOfLines={1}

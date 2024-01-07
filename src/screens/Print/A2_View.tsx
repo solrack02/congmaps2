@@ -1,36 +1,35 @@
 // ----------- import Packs
-import React from 'react';
-import { goTo } from '@morfos/routes';
-import { InitFunction } from '@morfos/renders';
-import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
+import React from "react";
+import { goTo } from "@morfos/routes";
+import { InitFunction } from "@morfos/renders";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
 // ----------- import Internals
-import { useData } from '../../config/centralData';
-import { getAssigns } from './actions/getAssigns';
-import { Btn1, stlIpt1 } from '../Home/Comps/Assigns/List/stlCards';
-import { getData, setStorage } from '../Home/Comps/Schedule/Form';
-import { AssignmentsList } from './Comps/AssignmentsList';
-import { Assignments_Form_Updt } from '../Home/Comps/Assigns/Form_Updt';
-import { Assignments_Form_Set } from '../Home/Comps/Assigns/Form_Set';
-import { Picker } from '@react-native-picker/picker';
+import { useData } from "../../config/centralData";
+import { getAssigns } from "./actions/getAssigns";
+import { Btn1, stlIpt1 } from "../Home/Comps/Assigns/List/stlCards";
+import { AssignmentsList } from "./Comps/AssignmentsList";
+import { Assignments_Form_Updt } from "../Home/Comps/Assigns/Form_Updt";
+import { Assignments_Form_Set } from "../Home/Comps/Assigns/Form_Set";
+import { Picker } from "@react-native-picker/picker";
 
-const css = require('./styles.css');
+const css = require("./styles.css");
 console.log({ css });
 
 // ----------- export Component
 export const A2_View = () => {
-  const [sttValues, setvalues] = React.useState('--');
+  const [sttValues, setvalues] = React.useState("--");
   const [sttPick, setPick]: any = React.useState();
   const [sttTypeForm, setTypeForm] = React.useState();
 
   // ----------- set Data
-  getData('currCycle').then((res: any) => {
-    setvalues(res);
-  });
+  // getData("currCycle").then((res: any) => {
+  //   setvalues(res);
+  // });
 
-  const condList = useData(ct => ct?.A2?.list.condList);
+  const condList = useData((ct) => ct?.A2?.list.condList);
 
-  const yearString = useData(ct => {
+  const yearString = useData((ct) => {
     const ctDataList = ct.projectData.cycles.list;
     const arrList = Object.values(ctDataList);
     const cycleInfo =
@@ -47,19 +46,19 @@ export const A2_View = () => {
 
     const viewport = document.querySelector("[name='viewport']");
     const content = `width=100, initial-scale=0.4, user-scalable=yes`;
-    viewport && viewport.setAttribute('content', content);
+    viewport && viewport.setAttribute("content", content);
   }, []);
 
   const getTxt = (txt: string) => {
     setPick(txt);
-    setStorage('currCycle', txt);
+    // setStorage("currCycle", txt);
   };
 
   const condValuePicker = sttPick ?? sttValues;
-  const arrCycles = useData(ct => {
+  const arrCycles = useData((ct) => {
     const objCycles = ct.projectData.cycles.list;
     const newArr = Object.values(objCycles);
-    newArr.unshift({ docId: '', cycle: 'Selecione...' });
+    newArr.unshift({ docId: "", cycle: "Selecione..." });
     return newArr;
   });
 
@@ -69,108 +68,105 @@ export const A2_View = () => {
       getAssigns();
     },
     selectedValue: condValuePicker,
-    placeholder: '...Selecione',
+    placeholder: "...Selecione",
     style: [stlIpt1, { width: 220 }],
   };
 
   // ----------- set Actions
-  const btnGoBack = () => goTo('home');
+  const btnGoBack = () => goTo("home");
 
   // ----------- set Return
   return (
-    <InitFunction setFunction={getAssigns}>
-      <View style={{ margin: 20 }}>
-        <div className="no-print">
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              borderColor: 2,
-              borderWidth: 2,
-              padding: 10,
-            }}
-          >
-            <TouchableOpacity style={stlBtnBack} onPress={btnGoBack}>
-              <Text style={{ color: 'white' }}>Voltar</Text>
-            </TouchableOpacity>
+    // <InitFunction setFunction={getAssigns}>
+    <View style={{ margin: 20 }}>
+      <div className="no-print">
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            borderColor: 2,
+            borderWidth: 2,
+            padding: 10,
+          }}
+        >
+          <TouchableOpacity style={stlBtnBack} onPress={btnGoBack}>
+            <Text style={{ color: "white" }}>Voltar</Text>
+          </TouchableOpacity>
 
-            <Picker {...pckr1b}>
-              {arrCycles.map(i => {
-                return <Picker.Item value={i.docId} label={i.cycle} />;
-              })}
-            </Picker>
-          </View>
-        </div>
-        {!condList && <ActivityIndicator size={'small'} color={'red'} />}
-        {condList && (
-          <>
-            {/* <Schedule_Form /> */}
-            {sttTypeForm === 'new' && <Assignments_Form_Set />}
-            {sttTypeForm === 'update' && <Assignments_Form_Updt />}
+          <Picker {...pckr1b}>
+            {arrCycles.map((i) => {
+              return <Picker.Item value={i.docId} label={i.cycle} />;
+            })}
+          </Picker>
+        </View>
+      </div>
+      {!condList && <ActivityIndicator size={"small"} color={"red"} />}
+      {condList && (
+        <>
+          {/* <Schedule_Form /> */}
+          {sttTypeForm === "new" && <Assignments_Form_Set />}
+          {sttTypeForm === "update" && <Assignments_Form_Updt />}
 
-            <div className={'top-print'}>
+          <div className={"top-print"}>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 30,
+                textAlign: "center",
+                marginVertical: 20,
+              }}
+            >
+              REGISTRO DE DESIGNAÇÃO DE TERRITÓRIO
+            </Text>
+
+            <View style={{ textAlign: "left", marginTop: 20 }}>
               <Text
                 style={{
-                  fontWeight: 'bold',
-                  fontSize: 30,
-                  textAlign: 'center',
-                  marginVertical: 20,
+                  textAlign: "left",
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  marginBottom: 20,
                 }}
               >
-                REGISTRO DE DESIGNAÇÃO DE TERRITÓRIO
+                Ano de Serviço: {yearString}
               </Text>
-
-              <View style={{ textAlign: 'left', marginTop: 20 }}>
-                <Text
-                  style={{
-                    textAlign: 'left',
-                    fontWeight: 'bold',
-                    fontSize: 16,
-                    marginBottom: 20,
-                  }}
-                >
-                  Ano de Serviço: {yearString}
-                </Text>
-              </View>
-            </div>
-          </>
-        )}
-        {condList && (
-          <AssignmentsList
-            sttTypeForm={sttTypeForm}
-            setTypeForm={setTypeForm}
-          />
-        )}
-      </View>
-    </InitFunction>
+            </View>
+          </div>
+        </>
+      )}
+      {condList && (
+        <AssignmentsList sttTypeForm={sttTypeForm} setTypeForm={setTypeForm} />
+      )}
+    </View>
+    // </InitFunction>
   );
 };
 
 export const allCardNumbers = [
-  '01',
-  '02',
-  '03',
-  '04',
-  '05',
-  '06',
-  '07',
-  '08',
-  '09',
-  '10',
-  '11',
-  '12',
-  '13',
-  '14',
-  '15',
-  '16',
-  '17',
-  '18',
-  '19',
-  '20',
-  '21',
-  '22',
-  '23',
-  '24',
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
 ];
 
 export const stlBtnBack = [Btn1, { width: 150, marginTop: 4 }];
