@@ -1,20 +1,20 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestoreInit } from '../../../../config/firebase';
-import { getData } from '../../../Home/Comps/Schedule/Form';
+// import { getData } from '../../../Home/Comps/Schedule/Form';
 
-export const asyncFn1 = async (cycles: any) => {
-  const currCycle = await getData('currCycle');
+export const asyncFn1 = async () => {
+  // const currCycle = await getData('currCycle');
 
-  if (!currCycle)
-    throw new Error('getAssigns asyncFn --> currCycle Not Found!');
+  // if (!currCycle)
+  //   throw new Error('getAssigns asyncFn --> currCycle Not Found!');
 
-  const cycleInfo =
-    Object.values(cycles).find((i: any) => i.docId === currCycle) ?? [];
-  const currCycleID = cycleInfo.docId;
-  console.log({ cycleInfo });
+  // const cycleInfo =
+  //   Object.values(cycles).find((i: any) => i.docId === currCycle) ?? [];
+  // const currCycleID = cycleInfo.docId;
+  // console.log({ cycleInfo });
 
   const dbRef = collection(firestoreInit, 'assignments');
-  const q = query(dbRef, where('cycleID', '==', currCycleID));
+  const q = query(dbRef, where('cycleID', '==', 'Wk86fCmDozTgrA5uTw53'));
   const searchUser = await getDocs(q);
 
   // ---------- set Users Found if any

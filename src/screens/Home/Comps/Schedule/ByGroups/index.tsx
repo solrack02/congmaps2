@@ -1,14 +1,13 @@
-import React from 'react';
-import { stlCardForm, stlIpt1 } from '../../Assigns/List/stlCards';
-import { Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { LoopCards } from './LoopCards';
-import { stlBtnBack } from '../../../../Print/A2_View';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Picker } from '@react-native-picker/picker';
-import { useData } from '../../../../../config/centralData';
-import { toTime } from '../../../../Print/Comps/AssignmentsList';
-import { InitFunction } from '@morfos/renders';
-import { getCards } from '../../Cards/actions/getCards';
+import React from "react";
+import { stlCardForm, stlIpt1 } from "../../Assigns/List/stlCards";
+import { Text, TouchableOpacity, View, ViewStyle } from "react-native";
+import { LoopCards } from "./LoopCards";
+import { stlBtnBack } from "../../../../Print/A2_View";
+import { Picker } from "@react-native-picker/picker";
+import { useData } from "../../../../../config/centralData";
+import { toTime } from "../../../../Print/Comps/AssignmentsList";
+import { InitFunction } from "@morfos/renders";
+import { getCards } from "../../Cards/actions/getCards";
 
 export const ByGroups = () => {
   // const btnSave = () => setAssignments();
@@ -16,15 +15,15 @@ export const ByGroups = () => {
 
   const [sttPick, setPick]: any = React.useState();
   const [sttValues, setValues]: any = React.useState();
-  const [sttCyle, setCycle] = React.useState('--');
+  const [sttCyle, setCycle] = React.useState("--");
   // ----------- set Data
-  getData('currCycle').then((res: any) => {
-    setCycle(res);
-  });
+  // getData('currCycle').then((res: any) => {
+  //   setCycle(res);
+  // });
 
   const objOpenedCards: any = {};
 
-  const arrGroups = useData(ct => {
+  const arrGroups = useData((ct) => {
     const objDates: any = {};
     const arrAllAssigns = ct.projectData.assignments?.list ?? [];
 
@@ -40,7 +39,7 @@ export const ByGroups = () => {
 
     function groupBy(list, keyGetter) {
       const map = new Map();
-      list.forEach(item => {
+      list.forEach((item) => {
         const key = keyGetter(item);
         const collection = map.get(key);
         if (!collection) {
@@ -52,7 +51,7 @@ export const ByGroups = () => {
       return map;
     }
 
-    const groupByGroup = groupBy(filterByCycle, curr => curr.card);
+    const groupByGroup = groupBy(filterByCycle, (curr) => curr.card);
 
     // console.log({ groupByGroup });
 
@@ -76,7 +75,7 @@ export const ByGroups = () => {
     } catch (error) {}
   };
 
-  getData2('currCycle');
+  getData2("currCycle");
 
   // const condValuePicker = sttPick ?? sttValues;
 
@@ -114,20 +113,20 @@ export const ByGroups = () => {
   const styleSquare: ViewStyle = {
     marginRight: 10,
     marginBottom: 10,
-    width: '100%',
+    width: "100%",
     maxHeight: 124,
-    overflow: 'hidden',
+    overflow: "hidden",
     borderWidth: 2,
-    borderColor: '#333',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    borderColor: "#333",
+    alignItems: "center",
+    justifyContent: "flex-start",
     padding: 4,
   };
   // console.log({ newArr });
-  const toRenderList = newArr.map(i => {
+  const toRenderList = newArr.map((i) => {
     return (
       <View style={styleSquare}>
-        <View style={{ flexDirection: 'row', marginBottom: 5 }}>
+        <View style={{ flexDirection: "row", marginBottom: 5 }}>
           <Text
             lineBreakMode="tail"
             numberOfLines={1}
@@ -135,13 +134,13 @@ export const ByGroups = () => {
           >
             Cartão
           </Text>
-          <Text style={{ fontSize: 12, fontWeight: 'bold' }}>
+          <Text style={{ fontSize: 12, fontWeight: "bold" }}>
             {/* {i.list.length} */}
             {i.label}
           </Text>
         </View>
         <View>
-          {i.list.map(e => {
+          {i.list.map((e) => {
             // console.log({ e });
             return (
               <View style={stlRow}>
@@ -186,75 +185,75 @@ export const ByGroups = () => {
 };
 
 export const arrGroupDays = [
-  'Segunda (Manhã)',
-  'Segunda (Tarde)',
-  'Terça',
-  'Quarta',
-  'Quinta',
-  'Sexta',
-  'Sábado',
-  'Domingo (saída 1)',
-  'Domingo (saída 2)',
-  'Domingo (saída 3)',
-  'Domingo (saída 4)',
-  'Domingo (saída 5)',
+  "Segunda (Manhã)",
+  "Segunda (Tarde)",
+  "Terça",
+  "Quarta",
+  "Quinta",
+  "Sexta",
+  "Sábado",
+  "Domingo (saída 1)",
+  "Domingo (saída 2)",
+  "Domingo (saída 3)",
+  "Domingo (saída 4)",
+  "Domingo (saída 5)",
 ];
 
-export const getAllStorage = async () => {
-  try {
-    const keys = await AsyncStorage.getAllKeys();
-    const value = await AsyncStorage.multiGet(keys);
+// export const getAllStorage = async () => {
+//   try {
+//     const keys = await AsyncStorage.getAllKeys();
+//     const value = await AsyncStorage.multiGet(keys);
 
-    if (value !== null) {
-      // value previously stored
-      // console.log({ value });
-    }
-  } catch (error) {
-    console.log({ error });
-    // error reading value
-  }
-};
+//     if (value !== null) {
+//       // value previously stored
+//       // console.log({ value });
+//     }
+//   } catch (error) {
+//     console.log({ error });
+//     // error reading value
+//   }
+// };
 
-export const getData = async (path: string) => {
-  try {
-    const value = await AsyncStorage.getItem(path);
-    if (value !== null) {
-      // value previously stored
-      // console.log({ value: value[0][0] });
-      return value;
-    }
-  } catch (error) {
-    console.log({ error });
-    // error reading value
-  }
-};
+// export const getData = async (path: string) => {
+//   try {
+//     const value = await AsyncStorage.getItem(path);
+//     if (value !== null) {
+//       // value previously stored
+//       // console.log({ value: value[0][0] });
+//       return value;
+//     }
+//   } catch (error) {
+//     console.log({ error });
+//     // error reading value
+//   }
+// };
 
-export const setStorage = async (propName: string, dataStorage: any) => {
-  await AsyncStorage.setItem(propName, dataStorage);
-};
+// export const setStorage = async (propName: string, dataStorage: any) => {
+//   await AsyncStorage.setItem(propName, dataStorage);
+// };
 
-export const clearData = async () => {
-  try {
-    const value = await AsyncStorage.clear();
-    if (value !== null) {
-      // value previously stored
-      // console.log({ value });
-    }
-  } catch (error) {
-    console.log({ error });
-    // error reading value
-  }
-};
+// export const clearData = async () => {
+//   try {
+//     const value = await AsyncStorage.clear();
+//     if (value !== null) {
+//       // value previously stored
+//       // console.log({ value });
+//     }
+//   } catch (error) {
+//     console.log({ error });
+//     // error reading value
+//   }
+// };
 
-const btnClear = () => clearData();
+// const btnClear = () => clearData();
 
 const stlRow: ViewStyle = {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  width: '100%',
+  flexDirection: "row",
+  flexWrap: "wrap",
+  width: "100%",
 };
 const stlContainer = {
-  backgroundColor: 'white',
+  backgroundColor: "white",
   marginBottom: 60,
   paddingHorizontal: 10,
   width: 200,
