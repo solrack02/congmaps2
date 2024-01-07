@@ -13,8 +13,8 @@ import { Assignments_Form_Updt } from "../Home/Comps/Assigns/Form_Updt";
 import { Assignments_Form_Set } from "../Home/Comps/Assigns/Form_Set";
 import { Picker } from "@react-native-picker/picker";
 
-const css = require("./styles.css");
-console.log({ css });
+// const css = require("./styles.css");
+// console.log({ css });
 
 // ----------- export Component
 export const A2_View = () => {

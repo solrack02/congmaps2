@@ -19,7 +19,12 @@
     "web:clear": "npx expo start --clear --web",
     "start:clear": "npx expo start --clear",
     "eject": "npx expo eject",
-    "build:clear": "npx expo build:web --clear"
+    "build:clear": "npx expo build:web --clear",
+    "_____ FIREBASE _____": "_",
+    "deploy:complete": "yarn export:web:clear && yarn deploy:hosting",
+    "deploy:hosting": "npx firebase-tools deploy --only hosting",
+    "firebase:login": "npx firebase-tools login",
+    "firebase:login:ci": "npx firebase-tools login --no-localhost"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
