@@ -1,7 +1,7 @@
 import React from "react";
 import { stlCardForm, stlIpt1 } from "../../Assigns/List/stlCards";
 import { Text, TouchableOpacity, View, ViewStyle } from "react-native";
-import { LoopCards } from "./LoopCards";
+// import { LoopCards } from "./LoopCards";
 import { stlBtnBack } from "../../../../Print/A2_View";
 import { Picker } from "@react-native-picker/picker";
 import { useData } from "../../../../../config/centralData";
@@ -15,7 +15,7 @@ export const ByGroups = () => {
 
   const [sttPick, setPick]: any = React.useState();
   const [sttValues, setValues]: any = React.useState();
-  const [sttCyle, setCycle] = React.useState("--");
+  // const [sttCyle, setCycle] = React.useState("--");
   // ----------- set Data
   // getData('currCycle').then((res: any) => {
   //   setCycle(res);
@@ -28,10 +28,11 @@ export const ByGroups = () => {
     const arrAllAssigns = ct.projectData.assignments?.list ?? [];
 
     const filterByCycle = arrAllAssigns.filter((currCard: any) => {
-      // console.log({ sttCyle });
+      const currCycle = window.localStorage.getItem("currCycle");
+      // console.log({ currCycle });
       // console.log(currCard.cycleID);
 
-      return currCard.cycleID === sttCyle;
+      return currCard.cycleID === currCycle;
     });
 
     filterByCycle.sort((a: any, b: any) => Number(a.card) - Number(b.card));
