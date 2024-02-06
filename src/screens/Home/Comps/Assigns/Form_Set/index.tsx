@@ -100,10 +100,10 @@ export const Assignments_Form_Set = () => {
         <Picker.Item value={"18"} label={"Cartão 18"} />
         <Picker.Item value={"19"} label={"Cartão 19"} />
         <Picker.Item value={"20"} label={"Cartão 20"} />
-        <Picker.Item value={"21"} label={"Cartão 21"} />
+        {/* <Picker.Item value={"21"} label={"Cartão 21"} />
         <Picker.Item value={"22"} label={"Cartão 22"} />
         <Picker.Item value={"23"} label={"Cartão 23"} />
-        <Picker.Item value={"24"} label={"Cartão 24"} />
+        <Picker.Item value={"24"} label={"Cartão 24"} /> */}
       </Picker>
 
       <Picker {...pckr1c}>
@@ -134,6 +134,7 @@ export const Assignments_Form_Set = () => {
       <TouchableOpacity style={Btn2} onPress={btnSave}>
         <Text style={stlTxtLight}>Enviar</Text>
       </TouchableOpacity>
+      <Text>Set</Text>
     </View>
   );
 };
