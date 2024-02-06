@@ -13,8 +13,8 @@ import { Assignments_Form_Updt } from "../Home/Comps/Assigns/Form_Updt";
 import { Assignments_Form_Set } from "../Home/Comps/Assigns/Form_Set";
 import { Picker } from "@react-native-picker/picker";
 
-// const css = require("./styles.css");
-// console.log({ css });
+const css = require("./styles.css");
+console.log({ css });
 
 // ----------- export Component
 export const A2_View = () => {
@@ -79,7 +79,7 @@ export const A2_View = () => {
   // ----------- set Return
   return (
     // <InitFunction setFunction={getAssigns}>
-    <View style={{ margin: 20 }}>
+    <View style={{ flex: 1, margin: 20 }}>
       <div className="no-print">
         <View
           style={{
@@ -164,10 +164,6 @@ export const allCardNumbers = [
   "18",
   "19",
   "20",
-  "21",
-  "22",
-  "23",
-  "24",
 ];
 
 export const stlBtnBack = [Btn1, { width: 150, marginTop: 4 }];
