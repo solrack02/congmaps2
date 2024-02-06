@@ -108,12 +108,21 @@ export const Assignments_Form_Set = () => {
 
       <Picker {...pckr1c}>
         <Picker.Item value={""} label={"Grupo..."} />
-        <Picker.Item value={"Antonio"} label={"Antonio"} />
-        <Picker.Item value={"A. Lindoia"} label={"A. Lindoia"} />
+
+        <Picker.Item value={"Antonio (seg)"} label={"Antonio (seg)"} />
+        <Picker.Item value={"Antonio (ter)"} label={"Antonio (ter)"} />
+        <Picker.Item value={"Antonio (qua)"} label={"Antonio (qua)"} />
+        <Picker.Item value={"Antonio (qui)"} label={"Antonio (qui)"} />
+        <Picker.Item value={"Antonio (sex)"} label={"Antonio (sex)"} />
+
+        <Picker.Item value={"A. Lindoia (sab)"} label={"A. Lindoia (sab)"} />
+
+        <Picker.Item value={"A. Lindoia (dom)"} label={"A. Lindoia (dom)"} />
         <Picker.Item value={"Criselidia"} label={"Criselidia"} />
         <Picker.Item value={"Laranjeiras I"} label={"Laranjeiras I"} />
         <Picker.Item value={"Laranjeiras II"} label={"Laranjeiras II"} />
         <Picker.Item value={"Tijucas"} label={"Tijucas"} />
+
         <Picker.Item value={"Todos os Grupos"} label={"Todos os Grupos"} />
       </Picker>
 

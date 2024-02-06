@@ -19,7 +19,7 @@ console.log({ css });
 // ----------- export Component
 export const A2_View = () => {
   const [sttValues, setvalues] = React.useState("--");
-  const [sttPick, setPick]: any = React.useState();
+  const [sttPick, setPick]: any = React.useState("Wk86fCmDozTgrA5uTw53");
   const [sttTypeForm, setTypeForm] = React.useState();
 
   // ----------- set Data
@@ -31,11 +31,13 @@ export const A2_View = () => {
 
   const yearString = useData((ct) => {
     const ctDataList = ct.projectData.cycles.list;
+
     const arrList = Object.values(ctDataList);
     const cycleInfo =
       arrList.find((i: any) => {
-        return i.docId === sttValues;
+        return i.docId === sttPick;
       }) ?? [];
+    console.log({ cycleInfo });
     const currYear = cycleInfo.year;
     return currYear;
   });
