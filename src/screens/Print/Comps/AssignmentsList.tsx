@@ -10,6 +10,13 @@ export const AssignmentsList = (props: any) => {
   const { setTypeForm } = props;
 
   const [sttValues, setvalues] = React.useState("--");
+  const currCycle = window.localStorage.getItem("currCycle");
+
+  React.useEffect(() => {
+    const isEmpty = !currCycle;
+    !isEmpty && setvalues(currCycle);
+    console.log("Effect", { currCycle, sttValues });
+  }, [sttValues]);
   // getData('currCycle').then((res: any) => {
   //   setvalues(res);
   // });
@@ -71,6 +78,9 @@ export const AssignmentsList = (props: any) => {
     const cardFound = Object.values(allCardsInfo).find((i: any) => {
       return i.cardNumber === cardNum;
     });
+
+    console.log({ sttValues });
+    console.log({ cardFound });
 
     const condLast =
       cardFound && cardFound[sttValues] && cardFound[sttValues].lastDate;
