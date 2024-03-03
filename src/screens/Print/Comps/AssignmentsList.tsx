@@ -15,7 +15,7 @@ export const AssignmentsList = (props: any) => {
   React.useEffect(() => {
     const isEmpty = !currCycle;
     !isEmpty && setvalues(currCycle);
-    console.log("Effect", { currCycle, sttValues });
+    // console.log("Effect", { currCycle, sttValues });
   }, [sttValues]);
   // getData('currCycle').then((res: any) => {
   //   setvalues(res);
